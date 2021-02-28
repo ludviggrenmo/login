@@ -13,6 +13,11 @@ flex-flow: column nowrap;
 align-items: center;
 justify-content: center;
 padding: 20px;
+border-radius: 10px;
+
+p{
+    margin: 30px;
+}
 `
 
 const Header = styled.h1`
@@ -20,11 +25,12 @@ margin: 50px;`
 
 const StyledButton = styled.button`
 height: 40px;
-width: 90%;
+width: 50%;
 border: none;
 margin: 20px;
-background-color: green;
+background-color: #6a7e91;
 color: white;
+border-radius: 15px;
 cursor: pointer;
 `
 
@@ -56,12 +62,12 @@ const Dashboard = () => {
 
     return (
         <Container>
-            <Header>Welcome!
+            <Header>Välkommen
          </Header>
         
             <p>{currentUser && currentUser.email}</p>
-            <Link to='/update-profile'>Handle Profile</Link>
-            <StyledButton disabled={loading} onClick={handleLogOut} >Sign out</StyledButton>
+            <Link to='/update-profile'>Hantera profil</Link>
+            <StyledButton disabled={loading} onClick={handleLogOut} >Logga ut</StyledButton>
             <p>{error}</p>
            
         </Container>

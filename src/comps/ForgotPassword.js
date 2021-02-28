@@ -13,6 +13,7 @@ flex-flow: column nowrap;
 align-items: center;
 justify-content: center;
 padding: 20px;
+border-radius: 10px;
 `
 const StyledForm = styled.form`
 display: flex;
@@ -29,6 +30,8 @@ height: 40px;
 border: none;
 width: 90%;
 padding: 10px;
+border-radius: 4px;
+background-color: #ebebeb;
 `
 
 const Header = styled.h1`
@@ -36,11 +39,12 @@ margin: 50px;`
 
 const StyledButton = styled.button`
 height: 40px;
-width: 90%;
+width: 50%;
 border: none;
 margin: 20px;
-background-color: green;
+background-color: #6a7e91;
 color: white;
+border-radius: 15px;
 cursor: pointer;
 `
 
@@ -81,10 +85,10 @@ const SignIn = () => {
                 <StyledInput ref={emailRef} placeholder='E-mail adress' type="email" />
                
                 
-                <StyledButton  disabled={loading}>Send password email</StyledButton>
+                <StyledButton  disabled={loading}>Skicka email med instruktioner</StyledButton>
                 </StyledForm>
-                <Link to='/login'>Login</Link>
-                <p>You don't have an account yet? <Link to='/signup'>Sign Up</Link></p>
+                <Link to='/login'>Logga in</Link>
+                <p>Ej inskriven? <Link to='/signup'>Klicka här</Link></p>
             </StyledLogin>
         
     </>)

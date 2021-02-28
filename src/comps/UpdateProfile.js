@@ -16,7 +16,9 @@ flex-flow: column nowrap;
 align-items: center;
 justify-content: center;
 padding: 20px;
+border-radius: 10px;
 `
+
 const StyledForm = styled.form`
 display: flex;
 flex-direction: column;
@@ -32,6 +34,8 @@ height: 40px;
 border: none;
 width: 90%;
 padding: 10px;
+border-radius: 4px;
+background-color: #ebebeb;
 `
 
 const Header = styled.h1`
@@ -39,11 +43,12 @@ margin: 50px;`
 
 const StyledButton = styled.button`
 height: 40px;
-width: 90%;
+width: 50%;
 border: none;
 margin: 20px;
-background-color: green;
+background-color: #6a7e91;
 color: white;
+border-radius: 15px;
 cursor: pointer;
 `
 
@@ -51,6 +56,7 @@ cursor: pointer;
 
 const UpdateProfile = () => {
 
+    const [showPassword, setShowPassword] = useState(false)
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
@@ -90,17 +96,25 @@ const UpdateProfile = () => {
     
       
             <StyledSignup>
-            <Header>Join us today!</Header>
+            <Header>Uppdatera profil</Header>
            
             <p>{error}</p>
             <StyledForm onSubmit={handleSubmit}>
-                <StyledInput required defaultValue={currentUser.email}ref={emailRef} placeholder='E-mail adress' type="email" />
-                <StyledInput ref={passwordRef} placeholder='No need to change' type="password" />
-                <StyledInput ref={passwordConfirmRef} placeholder='No need to change' type="password" />
+                <label htmlFor="password">Vill du byta lösenord?</label>
+                <StyledButton onClick={(e) => {
+                    e.preventDefault()
+                    setShowPassword(!showPassword)
+                }}>Update password</StyledButton>
+                {showPassword && <><StyledInput ref={passwordRef} placeholder='New password' type="password" />
+                <StyledInput ref={passwordConfirmRef} placeholder='New password' type="password" />
+                </>}
+                                <label htmlFor="email">Change email:</label>
+
+                <StyledInput required defaultValue={currentUser.email} ref={emailRef} placeholder='E-mail adress' type="email" />
                 <StyledButton disabled={loading} >Update</StyledButton>
                 </StyledForm>
                 
-                <p>Have an account? <Link to='/'>Cancel</Link></p>
+                <p><Link to='/'>Cancel</Link></p>
             </StyledSignup>
             
     </>)

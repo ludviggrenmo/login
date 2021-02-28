@@ -13,6 +13,7 @@ flex-flow: column nowrap;
 align-items: center;
 justify-content: center;
 padding: 20px;
+border-radius: 10px;
 `
 const StyledForm = styled.form`
 display: flex;
@@ -29,18 +30,23 @@ height: 40px;
 border: none;
 width: 90%;
 padding: 10px;
+border-radius: 4px;
+background-color: #ebebeb;
+z-index: 10;
 `
 
 const Header = styled.h1`
-margin: 50px;`
+margin: 50px;
+z-index: 6;`
 
 const StyledButton = styled.button`
 height: 40px;
-width: 90%;
+width: 50%;
 border: none;
 margin: 20px;
-background-color: green;
+background-color: #6a7e91;
 color: white;
+border-radius: 15px;
 cursor: pointer;
 `
 
@@ -75,18 +81,18 @@ const SignIn = () => {
     return (<>
    
             <StyledLogin>
-            <Header>Log In</Header>
+            <Header>Logga in</Header>
             <p>{currentUser && currentUser.email}</p>
             <p>{error}</p>
             <StyledForm onSubmit={handleLogin}>
        
-                <StyledInput ref={emailRef} placeholder='E-mail adress' type="email" />
-                <StyledInput ref={passwordRef} placeholder='Password' type="password" />
+                <StyledInput ref={emailRef} placeholder='E-mail' type="email" />
+                <StyledInput ref={passwordRef} placeholder='Lösenord' type="password" />
                 
-                <StyledButton disabled={loading}>Log In</StyledButton>
+                <StyledButton disabled={loading}>Logga in</StyledButton>
                 </StyledForm>
-            <Link to='/forgotpassword'>Forgot Password</Link>
-                <p>You don't have an account yet? <Link to='/signup'>Sign Up</Link></p>
+            <Link to='/forgotpassword'>Glömt lösenord?</Link>
+                <p>Ej inskriven? <Link to='/signup'>Klicka här</Link></p>
             </StyledLogin>
         
     </>)
